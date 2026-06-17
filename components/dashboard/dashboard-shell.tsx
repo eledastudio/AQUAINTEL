@@ -24,7 +24,7 @@ export function DashboardShell() {
   const title = navItems.find((n) => n.id === active)?.label ?? "Dashboard"
 
   return (
-    <div className="flex min-h-svh bg-background">
+    <div className="flex h-svh overflow-hidden bg-background">
       <Sidebar
         active={active}
         onSelect={setActive}
@@ -32,10 +32,10 @@ export function DashboardShell() {
         onCloseMobile={() => setMobileOpen(false)}
       />
 
-      <div className="flex min-w-0 flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col lg:pl-64">
         <Topbar title={title} onOpenMobile={() => setMobileOpen(true)} />
 
-        <main className="flex-1 space-y-4 p-4 lg:p-6">
+        <main className="flex-1 overflow-y-auto space-y-4 p-4 lg:p-6">
           <PageBanner />
           <KpiCards />
 
